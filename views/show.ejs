@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show the Result</title>
+    <style>
+        .navbar-start {
+            background-color: #ddcfcf;
+            padding: 10px;
+            text-align: center;
+        }
+        .navbar-item {
+            margin-right: 20px;
+            padding: 7px 15px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+    //run function after page loading is complete
+    document.addEventListener('DOMContentLoaded', function() {
+        //Reading data from a file
+        fetch('resultdata.json') 
+        .then(response => response.json())
+        .then(data => {
+            //get div from file
+            var container = document.getElementById("maincontainer");
+            var a = data.articles;
+            a.forEach(function(article) {
+                //create new div
+                var dataItem = document.createElement("div");
+                //Display data in an appropriate structure
+                dataItem.innerHTML = `
+                    <h2>${article.title}</h2>
+                    <p>author: ${article.author}</p>
+                    <p>${article.description}</p>
+                    <a href=${article.url} target="_blank">${article.url}</a>
+                    <hr>
+                `;
+                //Add a new div to the webpage
+                container.appendChild(dataItem);
+            });
+        })
+        .catch(error => console.error('error', error));
+    });
+    </script>
+</head>
+<body>
+    <div class="navbar-start">
+        <a class="navbar-item navbar-item-bg" href="/index">Home</a>
+        <a class="navbar-item navbar-item-bg" href="/get-started">Get started</a>
+        <a class="navbar-item navbar-item-bg" href="/show">Display Results</a>
+    </div>
+    <div id="maincontainer">
+    </div>
+</body>
+</html>
