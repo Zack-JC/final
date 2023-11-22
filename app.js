@@ -39,7 +39,7 @@ app.post('/getnews', (req, res) => {
     var year = currentDate.getFullYear();
     var month = currentDate.getMonth() + 1;
     var day = currentDate.getDate();
-    const url = `https://newsapi.org/v2/everything?q=${keyword}&from=${year}-${month}-${day}&to=${year}-${month}-${day}&sortBy=popularity&apiKey=bec8489fa16549bbace447ad0cf25971`;
+    const url = `https://newsapi.org/v2/everything?q=${keyword}&from=${year}-${month}-${day}&to=${year}-${month}-01&sortBy=popularity&apiKey=bec8489fa16549bbace447ad0cf25971`;
     //Organize the data and transform it into a suitable structure
     axios.get(url)
     .then(response => {
