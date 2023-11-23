@@ -33,8 +33,10 @@
     </div>
     <div class="main">
         <h1 >News aggregation</h1>
+        //Using the POST method to send form data to the server
         <form action="/getnews" method="post">
             <input type="text" id="keyword" class="search-input" placeholder="keyword">
+            //Trigger function when the user clicks the submit button
             <button type="submit" onclick="searchNews()" class="search-button">search</button>
         </form>
     </div>
