@@ -26,6 +26,7 @@
     
 </head>
 <body>
+    <% // Add top navigation bar %>
     <div class="navbar-start">
         <a class="navbar-item navbar-item-bg" href="/index">Home</a>
         <a class="navbar-item navbar-item-bg" href="/get-started">Get started</a>
@@ -33,10 +34,10 @@
     </div>
     <div class="main">
         <h1 >News Aggregation</h1>
-        //Using the POST method to send form data to the server
+        <% // Using the POST method to send form data to the server %>
         <form action="/getnews" method="post">
             <input type="text" id="keyword" class="search-input" placeholder="keyword">
-            //Trigger function when the user clicks the submit button
+            <% // Trigger function when the user clicks the submit button %>
             <button type="submit" onclick="searchNews()" class="search-button">search</button>
         </form>
     </div>
